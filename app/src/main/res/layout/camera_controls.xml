@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/camera_controls"
+    android:padding="50dp">
+
+    <ImageButton
+        android:id="@+id/take"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/camera"
+        android:background="@android:color/transparent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+
+    <ImageButton
+        android:id="@+id/change"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/rotate_camera"
+        android:background="@android:color/transparent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
