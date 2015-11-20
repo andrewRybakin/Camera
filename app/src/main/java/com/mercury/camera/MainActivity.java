@@ -17,9 +17,9 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FrameLayout fl=new FrameLayout(this);
+        FrameLayout fl = new FrameLayout(this);
         fl.setId(R.id.main_frame_layout);
-        FragmentManager fm=getFragmentManager();
+        FragmentManager fm = getFragmentManager();
         fm.beginTransaction()
                 .add(fl.getId(), new CameraFragment(), CAMERA_FRAGMENT_TAG)
                 .add(fl.getId(), new CameraControlsFragment(), CAMERA_CONTROLS_TAG)

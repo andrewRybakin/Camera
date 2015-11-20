@@ -18,7 +18,7 @@ public class CameraFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.camera_fragment, container, false);
+        View v = inflater.inflate(R.layout.camera_fragment, container, false);
         CameraPreview mPreview = new CameraPreview(getActivity().getBaseContext(), v);
         FrameLayout preview = (FrameLayout) v.findViewById(R.id.camera_preview);
         preview.addView(mPreview);
@@ -27,7 +27,7 @@ public class CameraFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        if(SuitableCamera.getInstance().isCameraOpened())
+        if (SuitableCamera.getInstance().isCameraOpened())
             SuitableCamera.getInstance().release();
         super.onDestroyView();
     }
@@ -35,7 +35,7 @@ public class CameraFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        if(SuitableCamera.getInstance().isCameraOpened())
+        if (SuitableCamera.getInstance().isCameraOpened())
             SuitableCamera.getInstance().release();
     }
 

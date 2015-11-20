@@ -29,7 +29,7 @@ public class CameraControlsFragment extends Fragment implements View.OnClickList
         changeButton.setOnClickListener(this);
         sensorManager = (SensorManager) getActivity().getSystemService(Activity.SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ALL), SensorManager.SENSOR_DELAY_NORMAL);
-        if(!SuitableCamera.getInstance().isFrontCamAvaible()){
+        if (!SuitableCamera.getInstance().isFrontCamAvaible()) {
             changeButton.setEnabled(false);
         }
         return v;
@@ -77,7 +77,7 @@ public class CameraControlsFragment extends Fragment implements View.OnClickList
                 animate(takeButton.getRotation(), 90);
                 SuitableCamera.getInstance().setOrientation(90);
             } else if (rotation > -135 && rotation < -45 && takeButton.getRotation() != 180 && changeButton.getRotation() != 180) {
-                animate((takeButton.getRotation()==-90)?270:90, 180);
+                animate((takeButton.getRotation() == -90) ? 270 : 90, 180);
                 SuitableCamera.getInstance().setOrientation(180);
             }
         }

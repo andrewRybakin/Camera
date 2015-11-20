@@ -6,14 +6,12 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-public class SuitableCamera implements Camera.PictureCallback, Camera.AutoFocusCallback {
+public class SuitableCamera implements Camera.PictureCallback, Camera.AutoFocusCallback, Camera.ErrorCallback {
 
     public static final String LOG_TAG = "SuitableCamera";
     public static final int BACK = Camera.CameraInfo.CAMERA_FACING_BACK; //Shortcut
@@ -51,7 +49,7 @@ public class SuitableCamera implements Camera.PictureCallback, Camera.AutoFocusC
             List<String> supportedFlashModes = camera.getParameters().getSupportedFlashModes();
             if (supportedFlashModes != null && supportedFlashModes.contains(Camera.Parameters.FLASH_MODE_AUTO)) {
                 Camera.Parameters parameters = camera.getParameters();
-                parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                parameters.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
                 parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
                 parameters.setSceneMode(Camera.Parameters.SCENE_MODE_AUTO);
                 camera.setParameters(parameters);
@@ -136,5 +134,10 @@ public class SuitableCamera implements Camera.PictureCallback, Camera.AutoFocusC
     @Override
     public void onAutoFocus(boolean paramBoolean, Camera paramCamera) {
         camera.takePicture(null, null, null, this);
+    }
+
+    @Override
+    public void onError(int error, Camera camera) {
+        Log.d(LOG_TAG, error + " ");
     }
 }

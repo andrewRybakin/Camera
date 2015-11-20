@@ -18,7 +18,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public CameraPreview(Context context, View cameraView) {
         super(context);
         mCameraView = cameraView;
-        mCamera=SuitableCamera.getInstance().open();
+        mCamera = SuitableCamera.getInstance().open();
         mHolder = getHolder();
         mHolder.addCallback(this);
         mHolder.setKeepScreenOn(true);
@@ -28,14 +28,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        if(mCamera.isCameraOpened())mCamera.startPreviewWithHolder(mHolder);
+        if (mCamera.isCameraOpened()) mCamera.startPreviewWithHolder(mHolder);
         Log.d(LOG_TAG, "SurfaceCreated");
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         final int height = resolveSize(getSuggestedMinimumHeight(), heightMeasureSpec);
-        final int width = height/3*4;
+        final int width = height / 3 * 4;
         setMeasuredDimension(width, height);
         Log.d(LOG_TAG, "onMeasure " + width + " " + height);
     }
@@ -45,7 +45,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         if (changed) {
             final int width = right - left;
             final int height = bottom - top;
-            mCameraView.layout(0, 0, width/3*4, height);
+            mCameraView.layout(0, 0, width / 3 * 4, height);
         }
     }
 
